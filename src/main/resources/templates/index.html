@@ -19,29 +19,12 @@
 
 <body>
 
-	<h1>Lista de Eventos</h1>
+	<h4>Bem vindo ao Sistema de Cadastro de Eventos</h4>
 	
 	<h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar evento</a></h3>
-
-	<table class="container">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Local</th>
-				<th>Data</th>
-				<th>Horário</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="evento : ${eventos}">
-					<td><span th:text="${evento.nome}"></span></td>
-					<td><span th:text="${evento.local}"></span></td>
-					<td><span th:text="${evento.data}"></span></td>
-					<td><span th:text="${evento.hora}"></span></td>
-			</tr>
-		</tbody>
-	</table>
 	
+	<h3><a href="/listaEventos" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista de eventos</a></h3>
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 	

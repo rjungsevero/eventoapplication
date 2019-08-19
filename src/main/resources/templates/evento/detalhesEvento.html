@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<meta charset="UTF-8">
-	
 	<title>Evento App</title>
 	
 	<!--Import Google Icon Font-->
@@ -14,27 +13,33 @@
 	
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 </head>
 <body>
+	<div class="container">
+	<h4>Detalhes do Eventos</h4>
 	
+	<h3><a href="/listaEventos" class="waves-effect waves-light btn"><i class="material-icons left">chevron_left</i>Lista de eventos</a></h3>
+	</div>
 	
-	<form class="container" method="post">
-		<h4>Cadastro de Eventos</h4>
-	
-		<h3><a href="/" class="waves-effect waves-light btn"><i class="material-icons left">chevron_left</i>Voltar</a></h3>
-	
-		Nome:<input type="text" value="" name="nome"/>
-		<div class="row">
-			<div class="input-field col s6">Local:<input type="text" value="" name="local"/></div>
-			<div class="input-field col s3">Hora:<input type="text" value="" name="hora"/></div>
-			<div class="input-field col s3">Data:<input type="date" value="" name="data"/></div>
+	<div class="container" th:each="detalhesEvento : ${detalhesEvento}">
+		<div>
+			<p>Nome: <span th:text="${detalhesEvento.nome}"></span></p>
+			<p>Local: <span th:text="${detalhesEvento.local}"></span></p>
+			<p>Data: <span th:text="${detalhesEvento.data}"></span></p>
+			<p>Horário: <span th:text="${detalhesEvento.hora}"></span></p>
 		</div>
+	</div>
+	
+	<form method="post" class="container">
+		<h4>Cadastro de convidados</h4>
+		Nome: <input type="text" value="" name="nomeConvidado"/>
+		RG: <input type="text" value="" name="rg"/>
 		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
+	
 	</form>
 	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	
+
 </body>
 </html>
