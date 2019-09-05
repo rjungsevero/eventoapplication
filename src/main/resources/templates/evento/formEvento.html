@@ -17,6 +17,8 @@
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<link rel="stylesheet" href="../style/styleCss.css" />
+
 
 </head>
 
@@ -28,27 +30,28 @@
 				<a href="#" class="brand-logo">Lista de Eventos</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="/eventos" class="waves-effect waves-light btn"><i
-			class="material-icons left">format_list_bulleted</i>Eventos</a></li>
+							class="material-icons left">format_list_bulleted</i>Eventos</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 
-	<form class="container" method="post">
-		<h3>Cadastrar Evento</h3>
+	<div class="container formEvento">
+	<form method="post">
+		<h5>Cadastrar Evento</h5>
 
-		Nome:<input type="text" value="" name="nome">
+		<input type="text" value="" name="nome" placeholder="Nome do evento">
 
 		<div class="row">
 
 			<div class="input-filed col s6">
-				Local:<input type="text" value="" name="local">
+				<input type="text" value="" name="local" placeholder="Local do evento">
 			</div>
 			<div class="input-filed col s3">
-				Hora:<input type="text" value="" name="horario">
+				<input type="time" value="" name="horario">
 			</div>
 			<div class="input-filed col s3">
-				Data:<input type="date" value="" name="data">
+				<input type="date" value="" name="data">
 			</div>
 
 			<th:block th:include="fragments/mensagemValidacao"></th:block>
@@ -60,6 +63,7 @@
 			<i class="material-icons left">check</i>Salvar
 		</button>
 	</form>
+	</div>
 
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>

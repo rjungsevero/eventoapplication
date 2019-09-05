@@ -17,6 +17,8 @@
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<link rel="stylesheet" href="../style/styleCss.css"/>
+
 
 </head>
 <body>
@@ -39,6 +41,7 @@
 				<th>Data</th>
 				<th>Horário</th>
 				<th>Local</th>
+				<th>Excluir</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,6 +52,9 @@
 				<td><span th:text="${evento.data}"></span></td>
 				<td><span th:text="${evento.horario}"></span></td>
 				<td><span th:text="${evento.local}"></span></td>
+				<td><a class="btn-floating btn-small waves-effect waves-light red" th:href="${(#mvc.url('EC#excluirEvento').arg(0, evento.id)).build()}">
+					<i class="material-icons left">delete</i>
+					</a></td>
 			</tr>
 		</tbody>
 	</table>

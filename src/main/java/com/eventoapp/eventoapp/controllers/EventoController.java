@@ -59,6 +59,13 @@ public class EventoController {
 		return model;	
 	}
 	
+	@GetMapping("/eventos/{id}/excluirEvento")
+	public String excluirEvento(long id) {
+		Evento evento = eventoRepository.findById(id);
+		eventoRepository.delete(evento);
+		return "redirect:/eventos";
+	}
+	
 	@PostMapping("/eventos/{id}")
 	public String salvaConvidado(@PathVariable("id") long id, @Valid Convidado convidado, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
@@ -70,5 +77,16 @@ public class EventoController {
 		convidadoRepository.save(convidado);
 		attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso!");
 		return "redirect:/eventos/{id}";	
-	}	
+	}
+	
+	@GetMapping("/eventos/{id}/excluirConvidado")
+	public String excluirConvidado(String rg) {
+		Convidado convidado = convidadoRepository.findByRg(rg);
+		convidadoRepository.delete(convidado);
+		Evento evento = convidado.getEvento();
+		Object auxiliar = evento.getId();
+		String id = auxiliar.toString();
+		return "redirect:/eventos/" + id;
+	}
+	
 }
